@@ -1,34 +1,35 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="Hello World!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Reise Forum</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <RouterLink class="nav-item nav-link" to="/" href="#">Home</RouterLink>
+        <RouterLink class="nav-item nav-link" to="/about" href="#">About</RouterLink>
+        <RouterLink class="nav-item nav-link" to="/reisen" href="#">Reise</RouterLink>
+        <!--        <a class="nav-item nav-link active" aria-current="page" href="#">Home</a>-->
+        <!--        <a class="nav-item nav-link" href="#">About</a>-->
+        <!--       <a class="nav-item nav-link" href="#">Reise</a>-->
+        <!--        <form class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>-->
+      </div>
     </div>
-  </header>
-
+  </nav>
   <RouterView />
 </template>
+
 
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
 }
 
 nav {
