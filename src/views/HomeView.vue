@@ -4,10 +4,7 @@
 
 <template>
   <main>
-    <div id='Home'>
-      <img className='w-full h-screen object-cover object-left scale-x-[-1]' src="../assets/gobi.jpg" alt=""/>
-    </div>
-    <div className="w-full h-screen absolute top-0 left-0 bg-white/50">
+    <div id='Home' class="w-100 d-flex justify-content-center align-items-center" style="height: 100vh; background-image: url('../gobi.jpg')" >
       <h1>Welcome to Reise Forum</h1>
     </div>
   </main>

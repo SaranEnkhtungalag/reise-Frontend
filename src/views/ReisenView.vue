@@ -22,7 +22,7 @@
     <div class="row row-cols-1 row-cols-nd-4 g-4">
       <div class="col" v-for="reise in reisen" :key="reise.id">
         <div class="card h-100">
-          <img src="../assets/gobi.jpg" class="card-img-top" :alt="reise.landname + ' ' + reise.reisename">
+          <img src="public/gobi.jpg" class="card-img-top" :alt="reise.landname + ' ' + reise.reisename">
           <div class="card-body">
             <h5 class="card-title">{{reise.landname}} {{reise.reisename}}</h5>
             <p class="card-text">
@@ -40,23 +40,19 @@ export default {
   name: 'ReisenView',
   data () {
     return {
-      reisen: [
-        {
-          id: 1,
-          landname: 'Mongolei',
-          reisename: 'Gobi',
-          description: 'Die Gobi ist der zentrale Teil des Mongolischen Beckens. Es ist eine ausgedehnte flache Hochebene, die durchschnittlich 1500 m über dem Meeresspiegel liegt.',
-          vote: []
-        },
-        {
-          id: 2,
-          landname: 'Deutschland',
-          reisename: 'Berliner Dom',
-          description: 'Der Berliner Dom ist eine evangelische Kirche im Zentrum Berlins und ein wahres Universum, das es zu entdecken gilt.',
-          vote: [1,2,3]
-        }
-      ]
+      reisen: []
     }
+  },
+  mounted () {
+    const endpoint = import.meta.env.VITE_BACKEND_BASE_URL + '/api/v1/reisen'
+
+    const requestOption = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+    fetch(endpoint, requestOption)
+        .then(response => response.json())
+        .then(result => console.log(result)).catch(error => console.log('error', error))
   }
 }
 </script>
